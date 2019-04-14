@@ -23,6 +23,9 @@ class TemporalShift(nn.Module):
         x = self.shift(x, self.n_segment, fold_div=self.fold_div, inplace=self.inplace)
         return self.net(x)
 
+    def set_n_segment(self, n_segment):
+        self.n_segment = n_segment
+
     @staticmethod
     def shift(x, n_segment, fold_div=3, inplace=False):
         nt, c, h, w = x.size()
